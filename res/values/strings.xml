@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">沙画机器人</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_clear">清除</string>
+    <string name="action_save">保存</string>
+    <string name="conn_bluetooth_hint">点击搜索按钮，进入到蓝牙设备的列表，选择一个可用的设备连接</string>
+    <string name="conn_bluetooth_btn">扫描</string>
+
+</resources>
