@@ -8,5 +8,7 @@
     <string name="action_save">保存</string>
     <string name="conn_bluetooth_hint">点击搜索按钮，进入到蓝牙设备的列表，选择一个可用的设备连接</string>
     <string name="conn_bluetooth_btn">扫描</string>
+    <string name="senddrawactivitylabel">发送到沙画机器人</string>
+    <string name="action_send">发送</string>
 
 </resources>

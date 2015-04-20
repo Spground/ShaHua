@@ -8,7 +8,10 @@ import cn.edu.dlut.chuangxin.shahua.view.ContentFragment;
 import cn.edu.dlut.chuangxin.shahua.view.DrawFragment;
 import cn.edu.dlut.chuangxin.shahua.view.DrawView;
 import cn.edu.dlut.chuangxin.shahua.view.MenuFragment;
+import cn.edu.dlut.chuangxin.shahua.view.ShowSavedDrawFragment;
 import cn.edu.dlut.chuangxin.shahua.view.MenuFragment.OnUserSelectedListener;
+import cn.edu.dlut.chuangxin.shahua.view.ShowSavedDrawFragment.OnUserClickDrawFile;
+
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -17,6 +20,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,9 +30,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
-		OnUserSelectedListener {
+		OnUserSelectedListener, OnUserClickDrawFile {
 
-	@SuppressLint("HandlerLeak") Handler handler = new Handler() {
+	@SuppressLint("HandlerLeak")
+	Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
@@ -236,11 +241,20 @@ public class MainActivity extends ActionBarActivity implements
 			invalidateOptionsMenu();
 			break;
 		case 3:// 保存的文件
+			fragment = new ShowSavedDrawFragment();
+			fragment.setArguments(bundle);
+			trans = getFragmentManager().beginTransaction().replace(
+					R.id.id_fragment_content_container, fragment);
+			trans.addToBackStack(null);
+			trans.commit();
+			bundle = null;
+			tag = "showsaveddrawfragment";
+			invalidateOptionsMenu();
 			break;
 		case 4:// 帮助
-			break;
+			
 		case 5:// 关于
-			break;
+			
 		default:
 			fragment = new ContentFragment();
 			fragment.setArguments(bundle);
@@ -255,4 +269,12 @@ public class MainActivity extends ActionBarActivity implements
 		}
 
 	}
+
+	@Override
+	public void switchActivity(Bundle bd) {
+		// TODO Auto-generated method stub
+		startActivity(new Intent(this, SendDrawActivity.class).putExtras(bd));
+	}
+
+	
 }

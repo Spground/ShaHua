@@ -28,6 +28,10 @@
         <activity 
             android:theme="@style/AppTheme"
             android:name=".bluetooth.DeviceList" />
+        <activity 
+            android:name=".SendDrawActivity"
+            android:label="@string/senddrawactivitylabel"
+            ></activity>
     </application>
 
 </manifest>
